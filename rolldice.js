@@ -7,9 +7,6 @@ function getComputerRoll() {
     return Math.floor(Math.random() * 6 + 1)
 }
 
-
-
-
 function rollDice() {
 
     while (playerScore < 3 && computerScore < 3) {
