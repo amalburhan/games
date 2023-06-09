@@ -1,3 +1,9 @@
+const readline = require('readline');
+let rl = readline.createInterface(
+    process.stdin, process.stdout
+);
+
+
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * choices.length);
@@ -5,14 +11,14 @@ function getComputerChoice() {
 
 }
 
+let playerSelection = "";
 let playerScore = 0;
 let computerScore = 0;
 
 
-function playGame() {
+function playGame(playerSelection) {
 
     while (playerScore < 3 && computerScore < 3) {
-        let playerSelection = "rock";
         let computerSelection = getComputerChoice();
         if (playerSelection === computerSelection) {
             console.log(`It's a tie! ${playerScore}:${computerScore}`);
@@ -43,6 +49,11 @@ function playGame() {
 }
 
 
+rl.question('Welcome to the rock, paper, scissors game! What would you like to play? ', (choice) => {
+    playerSelection = choice;
+    rl.close();
+    playGame(playerSelection);
+});
 
 
-playGame();
+
